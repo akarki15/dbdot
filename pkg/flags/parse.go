@@ -31,14 +31,16 @@ func Parse() Flags {
 	user := flag.String("user", "", "username of postgres db")
 	dbname := flag.String("dbname", "", "dbname for which you want to generate dot file")
 	sslmode := flag.Bool("sslmode", false, "enable sslmode for postgres db connection")
-	whiteList := flag.String("whitelist", "", "comma separated list of tables you want to generate dot file for")
+	whitelist := flag.String("whitelist", "", "comma separated list of tables you want to generate dot file for")
 	flag.Parse()
 
 	tempFlags := Flags{
-		dbname:    *dbname,
-		user:      *user,
-		sslmode:   *sslmode,
-		WhiteList: strings.Split(*whiteList, ","),
+		dbname:  *dbname,
+		user:    *user,
+		sslmode: *sslmode,
+	}
+	if len(*whitelist) > 0 {
+		tempFlags.WhiteList = strings.Split(*whitelist, ",")
 	}
 	return tempFlags
 }
