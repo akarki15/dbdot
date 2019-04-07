@@ -51,7 +51,7 @@ dbdot currently supports the following flags:
 
 # TODO
 Here's some features I would like to have for this project:
-
+* Support connection string. What happens if the user doesn't have access to db?
 * Add support for more db types.
 * Prettify output.
 * Add ability to whitelist columns in a table. Users should be able whitelist columns per table. But this starts getting into territory of language design. i.e. what kind of cli syntax should dbdot support. Hence this is the last item in my list.
