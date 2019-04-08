@@ -57,4 +57,4 @@ Here's some features I would like to have for this project:
 * Add ability to whitelist columns in a table. Users should be able whitelist columns per table. But this starts getting into territory of language design. i.e. what kind of cli syntax should dbdot support. Hence this is the last item in my list.
 
 # Inspiration
-A while back I wanted a _simple_ tool that would just spit out schema for tables that I wanted. A lot of tools I found were way too powerful, requiring a zillion installtion and configuration. This inspired me to write a simple self contained tool that was laser focused on just reading schema and spitting out DOT.
+A while back I wanted a _simple_ tool that would just spit out schema for tables that I wanted. A lot of tools I found were way too powerful, requiring a zillion installation and configuration. This inspired me to write a simple self contained tool that was laser focused on just reading schema and spitting out DOT.
