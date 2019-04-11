@@ -58,3 +58,6 @@ Here's some features I would like to have for this project:
 
 # Inspiration
 A while back I wanted a _simple_ tool that would just spit out schema for tables that I wanted. A lot of tools I found were way too powerful, requiring a zillion installation and configuration. This inspired me to write a simple self contained tool that was laser focused on just reading schema and spitting out DOT.
+
+# Similar projects
+* http://schemaspy.org/
