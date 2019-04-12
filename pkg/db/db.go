@@ -23,8 +23,9 @@ func Connect(flags flags.Flags) DBStore {
 	return DBStore{db}
 }
 
-func GetTableNames(ctx context.Context, txn *sql.Tx, whitelist []string) ([]string, error) {
-	rows, err := txn.QueryContext(ctx, "SELECT tablename from pg_tables where schemaname = 'public'")
+func GetTableNames(ctx context.Context, txn *sql.Tx, schema string, whitelist []string) ([]string, error) {
+	query := `SELECT tablename from pg_tables where schemaname = '%s'`
+	rows, err := txn.QueryContext(ctx, fmt.Sprintf(query, schema))
 	if err != nil {
 		return nil, err
 	}

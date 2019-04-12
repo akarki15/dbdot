@@ -16,6 +16,7 @@ type Flags struct {
 	dbname    string
 	dbpass    string
 	sslmode   bool
+	Schema    string
 	WhiteList []string
 }
 
@@ -52,6 +53,7 @@ func Parse() Flags {
 	askForPass := flag.Bool("W", false, "ask for password")
 	dbname := flag.String("dbname", "", "dbname for which you want to generate dot file")
 	sslmode := flag.Bool("sslmode", false, "enable sslmode for postgres db connection")
+	schema := flag.String("schema", "public", "schema name")
 	whitelist := flag.String("whitelist", "", "comma separated list of tables you want to generate dot file for")
 	flag.Parse()
 
@@ -59,6 +61,7 @@ func Parse() Flags {
 		dbname:  *dbname,
 		user:    *user,
 		sslmode: *sslmode,
+		Schema:  *schema,
 	}
 	if len(*whitelist) > 0 {
 		tempFlags.WhiteList = strings.Split(*whitelist, ",")
