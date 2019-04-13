@@ -33,7 +33,7 @@ func HandleFatal(err error) {
 }
 
 func drawTables(ctx context.Context, txn *sql.Tx, f flags.Flags) (*dot.Graph, error) {
-	tablenames, err := db.GetTableNames(ctx, txn, f.WhiteList)
+	tablenames, err := db.GetTableNames(ctx, txn, f.Schema, f.WhiteList)
 	if err != nil {
 		return nil, err
 	}
