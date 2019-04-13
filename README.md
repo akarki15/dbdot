@@ -24,7 +24,7 @@ digraph  {
 ```
 $ ./dbdot -dbname=pgguide -user=kewluser > test.dot && dot -Tpng test.dot -o outfile.png && open outfile.png
 ```
-Above command pipes the DOT description into test.dot and invokes `dot` cli tool to trasform test.dot to a outfile.png. Here's what outfile.png looks like:
+Above command pipes the DOT description into test.dot and invokes `dot` cli tool to transform test.dot to a outfile.png. Here's what outfile.png looks like:
 
 ![outfile.png](https://raw.githubusercontent.com/akarki15/dbdot/master/images/outfile.png)
 
