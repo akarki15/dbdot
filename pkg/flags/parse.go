@@ -15,6 +15,7 @@ type Flags struct {
 	user      string
 	dbname    string
 	dbpass    string
+	hostname  string
 	port      uint
 	sslmode   bool
 	Schema    string
@@ -42,7 +43,7 @@ func (f Flags) ConnString() string {
 		sslmode = "require"
 	}
 
-	flagStr := fmt.Sprintf("user=%s dbname=%s sslmode=%s port=%d", f.user, f.dbname, sslmode, f.port)
+	flagStr := fmt.Sprintf("host=%s port=%d user=%s dbname=%s sslmode=%s", f.hostname, f.port, f.user, f.dbname, sslmode)
 	if f.dbpass != "" {
 		flagStr += fmt.Sprintf(" password='%s'", f.dbpass)
 	}
@@ -55,16 +56,18 @@ func Parse() Flags {
 	dbname := flag.String("dbname", "", "dbname for which you want to generate dot file")
 	sslmode := flag.Bool("sslmode", false, "enable sslmode for postgres db connection")
 	schema := flag.String("schema", "public", "schema name")
+	hostname := flag.String("host", "localhost", "database host")
 	port := flag.Uint("port", 5432, "database port")
 	whitelist := flag.String("whitelist", "", "comma separated list of tables you want to generate dot file for")
 	flag.Parse()
 
 	tempFlags := Flags{
-		dbname:  *dbname,
-		user:    *user,
-		port:    *port,
-		sslmode: *sslmode,
-		Schema:  *schema,
+		dbname:   *dbname,
+		user:     *user,
+		hostname: *hostname,
+		port:     *port,
+		sslmode:  *sslmode,
+		Schema:   *schema,
 	}
 	if len(*whitelist) > 0 {
 		tempFlags.WhiteList = strings.Split(*whitelist, ",")
