@@ -39,14 +39,21 @@ Here's what outfile-whitelisted.png looks like:
 # Flags
 dbdot currently supports the following flags:
 ```
-  -whitelist string
-    	comma separated list of tables you want to generate dot file for
+  -W    ask for password
   -dbname string
-    	dbname for which you want to generate dot file
+        dbname for which you want to generate dot file
+  -host string
+        database host (default "localhost")
+  -port uint
+        database port (default 5432)
+  -schema string
+        schema name (default "public")
   -sslmode
-    	enable sslmode for postgres db connection
+        enable sslmode for postgres db connection
   -user string
-    	username of postgres db
+        username of postgres db
+  -whitelist string
+        comma separated list of tables you want to generate dot file for
 ```
 
 # TODO
