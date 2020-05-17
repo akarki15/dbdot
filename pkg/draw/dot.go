@@ -17,8 +17,9 @@ func ERD(tables []models.TableAndColumns, fks []models.ForeignKey) (dot.Graph, e
 		}
 		n := g.Node(table.Name).Box()
 		n.Attr("shape", "plaintext")
-		n.Attr("label", fmt.Sprintf(`<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD colspan="2">%s</TD></TR>%s</TABLE>>`,
-			table.Name, cols))
+		n.Attr("label", dot.Literal(
+			fmt.Sprintf(`<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD colspan="2">%s</TD></TR>%s</TABLE>>`,
+				table.Name, cols)))
 		tableToNode[table.Name] = n
 	}
 
